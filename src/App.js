@@ -11,6 +11,15 @@ import SinglePost from "./components/SinglePost";
 function App(props) {
   const [data, setData] = useState([]);
 
+  const addPostToState = (post) => {
+    setData([...data, post]);
+  };
+
+  const removeFromState = (id) => {
+    let arr = data.filter((item) => item.id !== id);
+    setData(arr);
+  };
+
   const getData = () => {
     console.log("poziva se getData");
     axios({ method: "get", url: "http://localhost:3500/post" })
@@ -33,10 +42,20 @@ function App(props) {
           <Route
             exact
             path="/"
-            element={<Home data={data} getData={getData}></Home>}
+            element={
+              <Home
+                data={data}
+                getData={getData}
+                removeFromState={removeFromState}
+              ></Home>
+            }
           />
-          <Route path="/add-post" element={<Form getData={getData}></Form>} />
-
+          <Route
+            path="/add-post"
+            element={
+              <Form getData={getData} addPostToState={addPostToState}></Form>
+            }
+          />
           <Route path="/:id" element={<SinglePost data={data}></SinglePost>} />
           <Route path="*" element={<Page404></Page404>} />
         </Routes>

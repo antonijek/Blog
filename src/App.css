@@ -21,7 +21,6 @@ body {
 }
 .post {
   margin: 2%;
-  height: 30vw;
 }
 .post img {
   height: 15vw;
@@ -61,13 +60,16 @@ textarea {
 }
 
 @media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+
   .posts-container {
     display: grid;
     grid-template-columns: 1fr;
   }
   .post {
     margin: 1%;
-    height: 80vw;
   }
   .post img {
     height: 50vw;

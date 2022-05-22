@@ -5,9 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log("index");
+
 root.render(
-  //I have commented out strict mode because of known isue regarding multipke rendering
+  //I have commented out strict mode because of known isue regarding multiple rendering
   //<React.StrictMode>
   <App />
   //</React.StrictMode>

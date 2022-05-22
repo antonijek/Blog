@@ -15,7 +15,7 @@ const Form = (props) => {
       data: { title, url, author, content },
     })
       .then((res) => {
-        props.getData();
+        props.addPostToState(res.data);
         navigate("/");
       })
       .catch((err) => console.log(err));
@@ -23,10 +23,10 @@ const Form = (props) => {
 
   return (
     <div className="form">
-      <div className="row">
-        <form className="col s12">
+      <div className="">
+        <form className="">
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12">
               <input
                 maxLength={20}
                 onChange={(e) => setTitle(e.target.value)}
@@ -38,7 +38,7 @@ const Form = (props) => {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12">
               <input
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="Url"
@@ -48,7 +48,7 @@ const Form = (props) => {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12">
               <input
                 maxLength={20}
                 id="author"
@@ -59,7 +59,7 @@ const Form = (props) => {
             </div>
           </div>
           <div className="row">
-            <div className="col s6">
+            <div className="col s12">
               <div>
                 <textarea
                   maxLength={250}

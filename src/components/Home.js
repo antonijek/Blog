@@ -6,10 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 const Home = (props) => {
   const navigate = useNavigate();
 
-  const removeItem = (e) => {
-    axios({ method: "delete", url: `http://localhost:3500/post/${e}` })
+  const removeItem = (id) => {
+    axios({ method: "delete", url: `http://localhost:3500/post/${id}` })
       .then((res) => {
-        props.getData();
+        props.removeFromState(id);
         navigate("/");
       })
       .catch((err) => console.log(err));

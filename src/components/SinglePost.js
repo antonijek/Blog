@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 const SinglePost = (props) => {
   const [data, setData] = useState([]);
   const { id } = useParams();
 
   const getPostById = () => {
-    axios({ method: "get", url: `http://localhost:3500/post/${id}` })
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+    let arr = props.data.filter((item) => item.id === Number(id));
+    setData(arr[0]);
   };
   useEffect(() => {
     getPostById();
