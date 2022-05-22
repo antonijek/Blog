@@ -56,7 +56,10 @@ function App(props) {
               <Form getData={getData} addPostToState={addPostToState}></Form>
             }
           />
-          <Route path="/:id" element={<SinglePost data={data}></SinglePost>} />
+          <Route
+            path="/posts/:id"
+            element={<SinglePost data={data}></SinglePost>}
+          />
           <Route path="*" element={<Page404></Page404>} />
         </Routes>
       </div>

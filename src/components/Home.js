@@ -1,6 +1,5 @@
 import axios from "axios";
 import Button from "@mui/material/Button";
-
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = (props) => {
@@ -20,7 +19,7 @@ const Home = (props) => {
       <h2>All posts</h2>
       <div className="posts-container">
         {props.data.map((item, i) => (
-          <Link to={`/${item.id}`} key={i}>
+          <Link to={`posts/${item.id}`} key={i}>
             <div className="post">
               <div className="col s12 m4">
                 <div className="card">
